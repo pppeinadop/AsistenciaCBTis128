@@ -1,6 +1,6 @@
 import streamlit as st
 
-from demo_data import DEMO_STUDENTS
+from demo_data import DEMO_GROUPS, DEMO_STUDENTS
 
 
 st.set_page_config(
@@ -23,19 +23,19 @@ st.info(
 
 col1, col2, col3 = st.columns(3)
 col1.metric("Alumnos de ejemplo", len(DEMO_STUDENTS))
-col2.metric("Grupos disponibles", "1")
-col3.metric("Conexión a base de datos", "No configurada")
+col2.metric("Grupos disponibles", len(DEMO_GROUPS))
+col3.metric("Almacenamiento de asistencia", "Supabase")
 
 st.subheader("Acerca de esta versión")
 st.markdown(
     """
-    - **Tomar asistencia:** registra presente o falta de forma temporal en esta sesión.
+    - **Tomar asistencia:** inicia sesión, marca a cada alumno y guarda el pase de lista en Supabase.
     - **Alumnos:** consulta una lista ficticia de ejemplo.
     - **Importar Excel:** carga un archivo para ver una vista previa, sin guardarlo.
     - **Reportes:** muestra indicadores ilustrativos basados en los datos de ejemplo.
     """
 )
 st.warning(
-    "No uses datos personales reales. Esta aplicación aún no tiene base de datos "
-    "y no guarda la información de forma permanente."
+    "La lista es ficticia. Configura Supabase y carga un padrón autorizado antes "
+    "de usar datos reales de estudiantes."
 )
